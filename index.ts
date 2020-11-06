@@ -9,8 +9,8 @@ output: "firstname:john, lastname:doe, email:jdoe@example.com"
 */
 
 function getParams(url) {
-  const queryString = window.location.search;
-  console.log(queryString);
+  //const url2 = new URL(url);
+  const queryString = new URL(url).search;
 
   const urlParams = new URLSearchParams(queryString);
 
@@ -18,14 +18,14 @@ function getParams(url) {
   keys = urlParams.keys(),
   values = urlParams.values(),
   entries = urlParams.entries();
+  parameters = "";
 
-  for (const key of keys) console.log(key);
-
-  for (const value of values) console.log(value);
-
+  for (const key of keys);
+  for (const value of values);
   for(const entry of entries) {
-    console.log(`${entry[0]}: ${entry[1]}`);
+    parameters += `${entry[0]}: ${entry[1]}, `;
   }
+  console.log(parameters);
 }
 
 
