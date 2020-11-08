@@ -23,7 +23,7 @@ function getParams(url) {
   for (const key of keys);
   for (const value of values);
   for(const entry of entries) {
-    parameters += `${entry[0]}: ${entry[1]}, `;
+    parameters += `${entry[0]}:${entry[1]}, `;
   }
   console.log(parameters);
 }
