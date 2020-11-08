@@ -9,30 +9,21 @@ output: "firstname:john, lastname:doe, email:jdoe@example.com"
 */
 
 function getParams(url) {
-  //const url2 = new URL(url);
   const queryString = new URL(url).search;
-
   const urlParams = new URLSearchParams(queryString);
+  const entries = urlParams.entries();
+  let parameters = "";
 
-  const
-  keys = urlParams.keys(),
-  values = urlParams.values(),
-  entries = urlParams.entries();
-  parameters = "";
-
-  for (const key of keys);
-  for (const value of values);
-  for(const entry of entries) {
+  for (const entry of entries) {
     parameters += `${entry[0]}:${entry[1]}, `;
   }
   console.log(parameters);
+  //return parameters;
 }
 
-
-
-getParams( 
-    "http://example.com/path/to/page?firstname=john&lastname=doe&email=jdoe@example.com"
-  );
+getParams(
+  "http://example.com/path/to/page?firstname=john&lastname=doe&email=jdoe@example.com"
+);
 
 /*
 EXERCISE 2
@@ -53,22 +44,20 @@ output: 'Invalid parameter'
 
  */
 
-
 function convertDecimal(value, format) {
-  if (isNaN(value) || (format !== 'BIN' && format !== 'OCT' && format !== 'HEX')){
-    return 'Invalid parameter';
-  }
-  else if (format == 'BIN'){
+  if (
+    isNaN(value) ||
+    (format !== "BIN" && format !== "OCT" && format !== "HEX")
+  ) {
+    return "Invalid parameter";
+  } else if (format == "BIN") {
     return value.toString(2);
-  }
-  else if (format == 'OCT'){
+  } else if (format == "OCT") {
     return value.toString(8);
-  }
-  else if (format == 'HEX'){
+  } else if (format == "HEX") {
     return value.toString(16);
   }
 }
-
 
 console.log(convertDecimal(10, "BIN"));
 console.log(convertDecimal(10, "OCT"));
@@ -94,6 +83,5 @@ output: ie. 10, 14, 19
 function generateInRange(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
-
 
 console.log(generateInRange(10, 20));
